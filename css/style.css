@@ -246,7 +246,7 @@ figure {
       overflow: visible; }
       #colorlib-hero .flexslider .slides li {
         background-repeat: no-repeat;
-        background-size: contain;
+        background-size: cover;
         background-position: center center;
         min-height: 400px;
         position: relative; }
