@@ -1,0 +1,20 @@
+<!DOCTYPE HTML>
+<html>
+    <body>
+        <h1> For the following values:</h1>
+        {% for key, value in result.items() %}
+            {% if key == 'Avalanche' %}
+                <h2> The model predicts {{value}}</h2>
+            {% elif key == 'Probability' %}
+                <h2> with probability {{value}}</h2>
+            {% else %}
+                <table border = 1>
+                    <tr>
+                        <th> {{ key }} </th>
+                        <td> {{ value }} </td>
+                    </tr>
+                </table>
+            {% endif %}
+        {% endfor %}
+    </body>
+</html>
