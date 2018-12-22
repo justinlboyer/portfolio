@@ -45,7 +45,7 @@ def gen_aspects(aspect):
             asps.append(0)
      return asps
 
-@app.route('/avalanche_model',methods = ['POST', 'GET'])
+@app.route('/avalanche_model',methods = ['POST'])
 def login():
    if request.method == 'POST':
       el = float(request.form['Elevation'])
