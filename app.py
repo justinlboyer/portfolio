@@ -3,7 +3,7 @@
 """
 Created on Fri Dec 21 20:38:05 2018
 
-@author: daxs
+@author: justin
 """
 import pickle
 import numpy as np
