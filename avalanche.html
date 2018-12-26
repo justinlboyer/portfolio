@@ -69,7 +69,7 @@
           <li><a href="index.html#skills">Skills</a></li>
           <li><a href="index.html#education">Education</a></li>
           <li><a href="index.html#experience" >Experience</a></li>
-          <li><a href="index.html#work">Work</a></li>
+          <li><a href="index.html#projects">Projects</a></li>
 <!--						<li><a href="#" data-nav-section="blog">Blog</a></li>-->
           <li><a href="index.html#contact">Contact</a></li>
         </ul>
@@ -99,7 +99,64 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 									<div class="about-desc">
 										<span class="heading-meta">Avalanches</span>
 										<h2 class="colorlib-heading">Predicting Avalanches</h2>
-                                        <p>TBD</p>
+										<p>I enjoy skiing in the backcountry.  The conditions that are ripe for an avalance are very often related to the current weather conditions.  Because of this I decided to build a model that indicates whether or not the current conditions are likely to cause an avalanche.
+										</p>
+										<p>The data came from the observations hosted at the Utah Avalanche Center's website, I joined this data along the date with data from the NOAA.  The main concerns regarding this data are that the avalanche observations are self reported, this could cause events to be missed.  For example, on days in which the avalanche danger is considerably high, no one may report the occurences of avalanches, because no one is in the field.  There are other potential issues with self reported data, for example the reporter may get the elevation or other feature incorrect.  All in all, this model should only be used to provide additional information.
+										</p>
+										<p>I tried various different models, settling on a gradient boosted model.  The final model was trained on 3857 observations.  The results of the model's performance on a hold out test set are below.</p>
+										<p>The Model's Accuracy is 0.9003, the AUC score is 0.9544.  This means roughly that if we randomly selected an event in which an avalanche occured the model has a 95% chance of rating this event as an avalanche over a non-avalanche event. 
+										</p>
+											<table style="width:75%">
+												<tr>
+												  <th></th>
+												  <th>Precision</th>
+												  <th>Recall</th>
+												  <th>F1 Score</th>
+												  <th>Support</th>
+												</tr>
+												<tr>
+												  <td>No avalance</td>
+												  <td>0.88</td>
+												  <td>0.80</td>
+												  <td>0.84</td>
+												  <td>247</td>
+												</tr>
+												<tr>
+												  <td>Avalanche</td>
+												  <td>0.91</td>
+												  <td>0.95</td>
+												  <td>0.93</td>
+												  <td>525</td>
+												</tr>
+												<p><br></p>
+												<tr>
+													<td>Micro Average</td>
+													<td>0.90</td>
+													<td>0.90</td>
+													<td>0.90</td>
+													<td>772</td>
+												</tr>
+												<tr>
+													<td>Macro Avgerage</td>
+													<td>0.89</td>
+													<td>0.87</td>
+													<td>0.88</td>
+													<td>772</td>
+												</tr>
+											  </table> 
+										<p><br></p>
+                                        <p>The gradient boosted model was chosen over others based on the micro averaged F1 score and the high recall for the avalanche class.  I wanted a model that is conservative in the sense that if there is any indication of conditions in which there could be an avalanche, it flags it as one.
+										</p>
+										<img src="images/av_feature_importance_gb.png" alt="Feature Importance">
+										<p>
+											Not suprisingly the top features are elevation and precipitation, followed by snow depth and then snow fall.  This is interesting because it provides additional evidence that it is not necessarily about how much "snow" falls, it is about how much the snow was loaded.  I tried some engineered features, such as snow water equivalent as well as features pertaining to how much snow/weight has been added, non of which provided additional information to the model (and were dropped).  Also of note, is the fact that the temperature and wind speed are important features.  The fact that the east through north east aspects have higher importance is not necessarily of consequence, due to the fact that these aspects get skiied and hence "observered" more.
+										</p>
+										<p>
+											This model definetly could be improved by feeding it a sliding window of previous weather conditions.  If this were the case, I can imagine that wind speed would play a more prominent role.  I also think the model could be improved if the aspects were rolled up into 4 features, North, South, East, and West.  Lastly, when I have the time I'd like to explore day of year as a feature as well.  If you are interested in exploring any of this please do not hesitate to <a href="index.html#contact">contact</a> me! 
+										</p>
+										<p>
+											To do: summary of model simulations.  Also deploy model as AWS lambda to improve performance?
+										</p>
 									</div>
 								</div>
                             </div>
@@ -108,35 +165,45 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
                 </div>
             </section>
 			<section class="colorlib-about" >
-				<form action = "https://avalanche-api.herokuapp.com/avalanche_model" method = "post" >
-					<p>Elevation (in feet):</p>
-					<p><input type = "text" placeholder="9240" name = "Elevation" /></p>
-					<p>Precipitation (in inches):</p>
-					<p><input type = "text" placeholder="0.4" name = "Precipitation" /></p>
-					<p>Snow Depth (in inches):</p>
-					<p><input type = "text" placeholder="63" name = "Snow_Depth" /></p>
-					<p>Snowfall (in inches):</p>
-					<p><input type = "text" placeholder="3.3" name = "Snowfall" /></p>
-					<p>Max Temperature (in Farenheit):</p>
-					<p><input type = "text" placeholder="32" name = "Max_Temperature" /></p>
-					<p>Min Temperature (in Farenheit):</p>
-					<p><input type = "text" placeholder="17" name = "Min_Temperature" /></p>
-					<p>Max Wind Speed:</p>
-					<p><input type = "text" placeholder="12" name = "Max_Wind_Speed" /></p>
-					<p>Aspect:</p>
-					<select name="Aspect">
-						<option value="Aspect_East">East</option>
-						<option value="Aspect_North">North</option>
-						<option value="Aspect_Northeast">North East</option>
-						<option value="Aspect_Northwest">North West</option>
-						<option value="Aspect_South">South</option>
-						<option value="Aspect_Southeast">South East</option>
-						<option value="Aspect_Southwest">South West</option>
-						<option value="Aspect_West">West</option>
-					</select> 
-					<p></p>
-					<p><input type = "submit" value = "submit" /></p>
-				</form>
+				<div class="colorlib-narrow-content">
+					<div class="row">
+						<div class="col-md-12">
+							<div class="row row-bottom-padded-sm animate-box" data-animate-effect="fadeInRight">
+								<span class="heading-meta">Avalanche Flagger</span>
+								<form action = "https://avalanche-api.herokuapp.com/avalanche_model" method = "post" >
+									<p>Note:  The model is being served on the free tier by heroku, as such it is pretty slow, please be patient.</p>
+									<p>Elevation (in feet):</p>
+									<p><input type = "text" placeholder="9240" name = "Elevation" /></p>
+									<p>Precipitation (in inches):</p>
+									<p><input type = "text" placeholder="0.4" name = "Precipitation" /></p>
+									<p>Snow Depth (in inches):</p>
+									<p><input type = "text" placeholder="63" name = "Snow_Depth" /></p>
+									<p>Snowfall (in inches):</p>
+									<p><input type = "text" placeholder="3.3" name = "Snowfall" /></p>
+									<p>Max Temperature (in Farenheit):</p>
+									<p><input type = "text" placeholder="32" name = "Max_Temperature" /></p>
+									<p>Min Temperature (in Farenheit):</p>
+									<p><input type = "text" placeholder="17" name = "Min_Temperature" /></p>
+									<p>Max Wind Speed:</p>
+									<p><input type = "text" placeholder="12" name = "Max_Wind_Speed" /></p>
+									<p>Aspect:</p>
+									<select name="Aspect">
+										<option value="Aspect_East">East</option>
+										<option value="Aspect_North">North</option>
+										<option value="Aspect_Northeast">North East</option>
+										<option value="Aspect_Northwest">North West</option>
+										<option value="Aspect_South">South</option>
+										<option value="Aspect_Southeast">South East</option>
+										<option value="Aspect_Southwest">South West</option>
+										<option value="Aspect_West">West</option>
+									</select> 
+									<p></p>
+									<p><input type = "submit" value = "submit" /></p>
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
 			</section>
     </div>
     </body>

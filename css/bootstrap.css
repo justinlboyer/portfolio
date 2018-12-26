@@ -1369,6 +1369,9 @@ pre code {
   }
 
   .col-md-6 {
+    width: 50%;
+  }
+  .col-md-6b {
     width: 75%;
   }
 
