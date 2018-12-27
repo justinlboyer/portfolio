@@ -755,6 +755,18 @@ body.offcanvas {
   height: 100px !important;
   width: 100px !important;
 }
+@media only screen and (max-width: 1140px){
+
+  .logo {
+      display: flex;
+      flex-flow: row wrap;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      height: 30px !important;
+      width: 30px !important;}
+
+}
 .material {
   height: 0px;
   width: 100%;
