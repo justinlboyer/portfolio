@@ -10,6 +10,7 @@
 
 	gtag('config', 'UA-131406991-1');
 	</script>
+	
 
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -114,7 +115,7 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 										<p>The data came from the observations hosted at the Utah Avalanche Center's website, I joined this data along the date with data from the NOAA Alta Guard station.  The main concerns regarding this data are that the avalanche observations are self reported, this could cause events to be missed.  For example, on days in which the avalanche danger is considerably high, no one may report the occurences of avalanches, because no one is in the field.  There are other potential issues with self reported data, for example the reporter may get the elevation or other feature incorrect.  All in all, this is a toy model and should only be used to provide additional information.
 										</p>
 										<p>I tried various different models, settling on a gradient boosted model.  The final model was trained on 3857 observations.  The results of the model's performance on a hold out test set are below:</p>
-										<p>The Model's accuracy is 0.9003, the AUC score is 0.9544.  This means roughly that if we randomly selected an event in which an avalanche occured the model has a 95% chance of rating this event as an avalanche over a non-avalanche event. 
+										<p>The Model's accuracy is 0.9067, the AUC score is 0.9611.  This means roughly that if we randomly selected an event in which an avalanche occured the model has a 95% chance of rating this event as an avalanche over a non-avalanche event. 
 										</p>
 											<table style="width:75%">
 												<tr>
@@ -127,13 +128,13 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 												<tr>
 												  <td>No avalance</td>
 												  <td>0.88</td>
-												  <td>0.80</td>
-												  <td>0.84</td>
+												  <td>0.82</td>
+												  <td>0.85</td>
 												  <td>247</td>
 												</tr>
 												<tr>
 												  <td>Avalanche</td>
-												  <td>0.91</td>
+												  <td>0.92</td>
 												  <td>0.95</td>
 												  <td>0.93</td>
 												  <td>525</td>
@@ -141,16 +142,16 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 												<p><br></p>
 												<tr>
 													<td>Micro Average</td>
-													<td>0.90</td>
-													<td>0.90</td>
-													<td>0.90</td>
+													<td>0.91</td>
+													<td>0.91</td>
+													<td>0.91</td>
 													<td>772</td>
 												</tr>
 												<tr>
 													<td>Macro Avgerage</td>
-													<td>0.89</td>
-													<td>0.87</td>
+													<td>0.90</td>
 													<td>0.88</td>
+													<td>0.89</td>
 													<td>772</td>
 												</tr>
 											  </table> 
@@ -178,78 +179,66 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 			<section class="colorlib-about" >
 			-->
 				<div class="colorlib-narrow-content">
-					<div class="row">
-						<div class="col-md-12">
-							<div class="row row-bottom-padded-sm animate-box" data-animate-effect="fadeInRight">
-								<span class="heading-meta">Avalanche Flagger</span>
-								<form action = "https://avalanche-api.herokuapp.com/avalanche_model" method = "post" >
-									<p>Note:  The model is being served on the free tier by heroku, as such it is pretty slow, please be patient.</p>
-									<div class="col-md-6 animate-box" data-animate-effect="fadeInLeft">
-										<div class="progress-wrap">
-											<p>Elevation (in feet):</p>
-											<p><input type = "text" placeholder="9240" name = "Elevation" /></p>
-										</div>
-									</div>
-									<div class="col-md-6 animate-box" data-animate-effect="fadeInRight">
-										<div class="progress-wrap">
-											<p>Precipitation (in inches):</p>
-											<p><input type = "text" placeholder="0.4" name = "Precipitation" /></p>
-										</div>
-									</div>
-									<div class="col-md-6 animate-box" data-animate-effect="fadeInLeft">
-										<div class="progress-wrap">
-											<p>Snow Depth (in inches):</p>
-											<p><input type = "text" placeholder="63" name = "Snow_Depth" /></p>
-										</div>
-									</div>
-									<div class="col-md-6 animate-box" data-animate-effect="fadeInRight">
-										<div class="progress-wrap">
-											<p>Snowfall (in inches):</p>
-											<p><input type = "text" placeholder="3.3" name = "Snowfall" /></p>
-										</div>
-									</div>
-									<div class="col-md-6 animate-box" data-animate-effect="fadeInLeft">
-										<div class="progress-wrap">
-											<p>Max Temperature (in Farenheit):</p>
-											<p><input type = "text" placeholder="32" name = "Max_Temperature" /></p>
-										</div>
-									</div>
-									<div class="col-md-6 animate-box" data-animate-effect="fadeInRight">
-										<div class="progress-wrap">
-											<p>Min Temperature (in Farenheit):</p>
-											<p><input type = "text" placeholder="17" name = "Min_Temperature" /></p>
-										</div>
-									</div>
-									<div class="col-md-6 animate-box" data-animate-effect="fadeInLeft">
-										<div class="progress-wrap">
-											<p>Max Wind Speed:</p>
-											<p><input type = "text" placeholder="12" name = "Max_Wind_Speed" /></p>
-										</div>
-									</div>
-
-									<!--
-									<p>Aspect:</p>
-									<select name="Aspect">
-										<option value="Aspect_East">East</option>
-										<option value="Aspect_North">North</option>
-										<option value="Aspect_Northeast">North East</option>
-										<option value="Aspect_Northwest">North West</option>
-										<option value="Aspect_South">South</option>
-										<option value="Aspect_Southeast">South East</option>
-										<option value="Aspect_Southwest">South West</option>
-										<option value="Aspect_West">West</option>
-									</select>
-									--> 
-									<div class="col-md-12 animate-box" data-animate-effect="fadeInRight">
-										<p><br><input type = "submit" value = "submit" /></p>
-									</div>
-								</form>
-							</div>
-						</div>
+					<div class="row row-bottom-padded-sm animate-box" data-animate-effect="fadeInRight">
+						<span class="heading-meta">Avalanche Flagger</span>
+					</div>
+					<div class="row ">
+						<form action = "https://avalanche-api.herokuapp.com/avalanche_model" method = "post" onsubmit="submitForm(event, this)">
+							<p>Note:  The model is being served on the free tier by heroku, as such it is pretty slow, please be patient.</p>
+								<div class="col-md-4 animate-box" data-animate-effect="fadeInLeft">
+									<p>Elevation (in feet):</p>
+									<p><input type = "text" placeholder="9240" name = "Elevation" /></p>
+									<p>Precipitation (in inches):</p>
+									<p><input type = "text" placeholder="0.4" name = "Precipitation" /></p>
+									<p>Snow Depth (in inches):</p>
+									<p><input type = "text" placeholder="63" name = "Snow_Depth" /></p>
+									<p>Snowfall (in inches):</p>
+									<p><input type = "text" placeholder="3.3" name = "Snowfall" /></p>
+									<p><br><input type = "submit" value = "submit" /></p>
+								</div>
+								<div class="col-md-4 animate-box" data-animate-effect="fadeInLeft">
+									<p>Max Temperature (in Farenheit):</p>
+									<p><input type = "text" placeholder="32" name = "Max_Temperature" /></p>
+									<p>Min Temperature (in Farenheit):</p>
+									<p><input type = "text" placeholder="17" name = "Min_Temperature" /></p>
+									<p>Max Wind Speed:</p>
+									<p><input type = "text" placeholder="12" name = "Max_Wind_Speed" /></p>
+									
+								</div>
+								<div class="col-md-4 animate-box" data-animate-effect="fadeInRight">
+												<h4>Output: </h4>
+												<p>The model predicts:</p>
+												<h5 id="avy">No results yet</h5>
+												<p>With probability</p>
+												<h5 id="avalanche_probability">Input values and click submit</h5>
+								</div>
+								
+						</form>
 					</div>
 				</div>
 			</section>
-    </div>
+		</div>
+		</div>
+		
+		<script>
+			function submitForm(e, form){
+			e.preventDefault();
+			
+			fetch('https://avalanche-api.herokuapp.com/avalanche_model', {
+			method: 'POST',
+			headers: {'Accept': 'application/json','Content-Type': 'text/plain'},
+			body: JSON.stringify({Elevation: form.Elevation.value, Precipitation: form.Precipitation.value, Snow_Depth: form.Snow_Depth.value, Snowfall: form.Snowfall.value, Max_Temperature: form.Max_Temperature.value, Min_Temperature: form.Min_Temperature.value, Max_Wind_Speed: form.Max_Wind_Speed.value}, {mode: 'cors'})
+				}).then(function(response) {
+				return response.json();
+				}).then(function(data) {
+					document.getElementById("avy").innerHTML = JSON.stringify(data["Outputs"]["Avalanche"]);
+					document.getElementById("avalanche_probability").innerHTML = JSON.stringify(data["Outputs"]["Probability"]);
+				}).catch(function(err) {
+					document.getElementById("avalanche").innerHTML = "ERROR fetching data!";
+				alert('Error')
+				});
+			}
+		</script>
     </body>
 
 
