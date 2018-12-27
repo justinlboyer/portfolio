@@ -1,6 +1,16 @@
 <!DOCTYPE HTML>
 <html>
 	<head>
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-131406991-1"></script>
+	<script>
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+
+	gtag('config', 'UA-131406991-1');
+	</script>
+
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<title>Avalanche Project</title>
@@ -174,20 +184,49 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 								<span class="heading-meta">Avalanche Flagger</span>
 								<form action = "https://avalanche-api.herokuapp.com/avalanche_model" method = "post" >
 									<p>Note:  The model is being served on the free tier by heroku, as such it is pretty slow, please be patient.</p>
-									<p>Elevation (in feet):</p>
-									<p><input type = "text" placeholder="9240" name = "Elevation" /></p>
-									<p>Precipitation (in inches):</p>
-									<p><input type = "text" placeholder="0.4" name = "Precipitation" /></p>
-									<p>Snow Depth (in inches):</p>
-									<p><input type = "text" placeholder="63" name = "Snow_Depth" /></p>
-									<p>Snowfall (in inches):</p>
-									<p><input type = "text" placeholder="3.3" name = "Snowfall" /></p>
-									<p>Max Temperature (in Farenheit):</p>
-									<p><input type = "text" placeholder="32" name = "Max_Temperature" /></p>
-									<p>Min Temperature (in Farenheit):</p>
-									<p><input type = "text" placeholder="17" name = "Min_Temperature" /></p>
-									<p>Max Wind Speed:</p>
-									<p><input type = "text" placeholder="12" name = "Max_Wind_Speed" /></p>
+									<div class="col-md-6 animate-box" data-animate-effect="fadeInLeft">
+										<div class="progress-wrap">
+											<p>Elevation (in feet):</p>
+											<p><input type = "text" placeholder="9240" name = "Elevation" /></p>
+										</div>
+									</div>
+									<div class="col-md-6 animate-box" data-animate-effect="fadeInRight">
+										<div class="progress-wrap">
+											<p>Precipitation (in inches):</p>
+											<p><input type = "text" placeholder="0.4" name = "Precipitation" /></p>
+										</div>
+									</div>
+									<div class="col-md-6 animate-box" data-animate-effect="fadeInLeft">
+										<div class="progress-wrap">
+											<p>Snow Depth (in inches):</p>
+											<p><input type = "text" placeholder="63" name = "Snow_Depth" /></p>
+										</div>
+									</div>
+									<div class="col-md-6 animate-box" data-animate-effect="fadeInRight">
+										<div class="progress-wrap">
+											<p>Snowfall (in inches):</p>
+											<p><input type = "text" placeholder="3.3" name = "Snowfall" /></p>
+										</div>
+									</div>
+									<div class="col-md-6 animate-box" data-animate-effect="fadeInLeft">
+										<div class="progress-wrap">
+											<p>Max Temperature (in Farenheit):</p>
+											<p><input type = "text" placeholder="32" name = "Max_Temperature" /></p>
+										</div>
+									</div>
+									<div class="col-md-6 animate-box" data-animate-effect="fadeInRight">
+										<div class="progress-wrap">
+											<p>Min Temperature (in Farenheit):</p>
+											<p><input type = "text" placeholder="17" name = "Min_Temperature" /></p>
+										</div>
+									</div>
+									<div class="col-md-6 animate-box" data-animate-effect="fadeInLeft">
+										<div class="progress-wrap">
+											<p>Max Wind Speed:</p>
+											<p><input type = "text" placeholder="12" name = "Max_Wind_Speed" /></p>
+										</div>
+									</div>
+
 									<!--
 									<p>Aspect:</p>
 									<select name="Aspect">
@@ -201,8 +240,9 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 										<option value="Aspect_West">West</option>
 									</select>
 									--> 
-									<p></p>
-									<p><input type = "submit" value = "submit" /></p>
+									<div class="col-md-12 animate-box" data-animate-effect="fadeInRight">
+										<p><br><br><input type = "submit" value = "submit" /></p>
+									</div>
 								</form>
 							</div>
 						</div>
