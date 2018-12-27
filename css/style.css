@@ -750,8 +750,8 @@ body.offcanvas {
   display: flex;
   align-items: center;
   text-align: center;
-  height: 100px;
-  width: 100px;
+  height: 100px !important;
+  width: 100px !important;
 }
 .material {
   height: 0px;
