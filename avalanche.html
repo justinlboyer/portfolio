@@ -163,7 +163,7 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 											Not suprisingly the top features are elevation and precipitation, followed by snow depth and snow fall.  This is interesting because it provides additional evidence that it is not necessarily about how much "snow" falls, it is about how much the snow was loaded.  I tried some engineered features, such as snow water equivalent as well as features pertaining to how much snow/weight has been added, non of which provided additional information to the model (and were dropped).
 										</p>
 										<p>
-											This model definetly could be improved by feeding it a sliding window of previous weather conditions.  If this were the case, I can imagine that wind speed would play a more prominent role.  I dropped aspect from the feature list, because so many observations of avalanches occure on Northerly aspects that it was providing inaccurate predictions.  But I do think the model might have some improvement if the aspects were rolled up into 4 features, North, South, East, and West.  Lastly, when I have the time I'd like to explore day of year as a feature as well.  If you are interested in exploring any of this please do not hesitate to <a href="index.html#contact">contact</a> me! 
+											This model definetly could be improved by feeding it a sliding window of previous weather conditions.  If this were the case, I can imagine that wind speed would play a more prominent role.  I dropped aspect from the feature list, because so many observations of avalanches occured on northerly aspects that it was providing inaccurate predictions.  But I do think the model might have some improvement if the aspects were rolled up into 4 features, North, South, East, and West.  Lastly, when I have the time I'd like to explore day of year as a feature as well.  If you are interested in exploring any of this please do not hesitate to <a href="index.html#contact">contact</a> me! 
 										</p>
 										<p>
 											To do: summary of model simulations.  Also deploy model as AWS lambda to improve performance?
@@ -194,7 +194,6 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 									<p><input type = "text" placeholder="63" name = "Snow_Depth" /></p>
 									<p>Snowfall (in inches):</p>
 									<p><input type = "text" placeholder="3.3" name = "Snowfall" /></p>
-									<p><br><input type = "submit" value = "submit" /></p>
 								</div>
 								<div class="col-md-4 animate-box" data-animate-effect="fadeInLeft">
 									<p>Max Temperature (in Farenheit):</p>
@@ -203,7 +202,7 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 									<p><input type = "text" placeholder="17" name = "Min_Temperature" /></p>
 									<p>Max Wind Speed:</p>
 									<p><input type = "text" placeholder="12" name = "Max_Wind_Speed" /></p>
-									
+									<p><br><input type = "submit" value = "submit" /></p>
 								</div>
 								<div class="col-md-4 animate-box" data-animate-effect="fadeInRight">
 												<h4>Output: </h4>
