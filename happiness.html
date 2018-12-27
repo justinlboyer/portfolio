@@ -112,19 +112,21 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
                                         <p>The <a href="https://rit-public.github.io/HappyDB/"><i>HappyDB</i></a> 
                                         dataset contains around 100,000 crowd sourced happy moments.  With the goal of understanding what causes people to be happy!
                                         </p>
-                                        <p>In my analysis I embedded the sentences using the <a href="https://tfhub.dev/google/universal-sentence-encoder/2"><i>Universal Sentence Encoder</i></a>.  This is a model that encodes text into high dimensional vectors.  I then reduce the dimensionality using T-SNE, cluster with agglomerative clustering and apply mapper.  The resulting visualization below, provides a well rendered summarazation of the data. For example, the people who wrote about playing with animals are clustered together and share an edge.  Traversing this edge we happen upon people who found happiness in hiking, good health, or personal care.</p>
+                                        <p>In my analysis I embedded the sentences using the <a href="https://tfhub.dev/google/universal-sentence-encoder/2"><i>Universal Sentence Encoder</i></a>.  This is a model that encodes text into high dimensional vectors.  I then reduced the dimensionality using T-SNE, clustered with agglomerative clustering and applied mapper.  The resulting visualization below provides a well rendered summarization of the data. For example, the people who wrote about playing with animals are clustered together and share an edge.  Traversing this edge we happen upon people who found happiness in hiking, good health, or personal care.</p>
                                         <p>
                                             Some interesting insights are:
                                             <ul>
                                                 <li>Roughly 15% of the people found enjoyment in participating in an activity. </li>
                                                 <li>Another 5% were happy due to a promotion.</li>
-                                                <li>Approximately 40% experienced happiness when accompanied with friends or family.  Of these about 5% experienced happiness as a result of their children.</li>
+                                                <li>Approximately 40% experienced happiness when accompanied with friends or family.  Of these about 12.5% experienced happiness as a result of their children.</li>
                                                 <li>In this sample, happiness as a result of money, grades, or attaining goals is fairly rare.  Likely due to the relavant rarity of these events coupled with the low probability of reporting the event.</li>
                                             </ul>
                                         </p>
                                         <p>The take away, from this project is happiness is attainable if we focus on deriving it from activities or experiences with friends/families.  This can easily be done because these events are common, all we need to do is recognize that we are happy during these times!</p>
 
                                         <p>To use the visualization expand the "cluster details" tab and hover over a node to see the what happiness events were clustered in the node.  The edges that connect the nodes convey that there is some relationship between the two nodes.</p>
+
+                                        <p>To do: Embed categories such as: grateful, passionate, excited, etc.. with the universal sentence encoder and identify which clusters align with each category.</p>
 									</div>
 								</div>
                             </div>

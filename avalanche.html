@@ -110,12 +110,12 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 									<div class="about-desc">
 										<span class="heading-meta">Avalanches</span>
 										<h2 class="colorlib-heading">Predicting Avalanches</h2>
-										<p>I enjoy skiing in the backcountry.  The conditions that are ripe for an avalance are very often related to the current weather conditions.  Because of this I decided to build a model that indicates whether or not the current conditions are likely to cause an avalanche.
+										<p>I enjoy skiing in the backcountry.  The conditions that are ripe for an avalance are often related to the current weather conditions.  Because of this I decided to build a model that indicates whether or not the current conditions are likely to cause an avalanche.
 										</p>
-										<p>The data came from the observations hosted at the Utah Avalanche Center's website, I joined this data along the date with data from the NOAA Alta Guard station.  The main concerns regarding this data are that the avalanche observations are self reported, this could cause events to be missed.  For example, on days in which the avalanche danger is considerably high, no one may report the occurences of avalanches, because no one is in the field.  There are other potential issues with self reported data, for example the reporter may get the elevation or other feature incorrect.  All in all, this is a toy model and should only be used to provide additional information.
+										<p>The data I used came from the observations hosted at the Utah Avalanche Center's website, I joined this data to the NOAA's Alta Guard station by date.  The main concerns regarding this data are that the avalanche observations are self reported, this could cause events to be missed.  For example, on days in which the avalanche danger is considerably high, no one may report the occurences of avalanches, because no one is in the field.  There are other potential issues with self reported data, for example the reporter may get the elevation or other feature incorrect.  All in all, this is a toy model and should only be used to provide additional information.
 										</p>
 										<p>I tried various different models, settling on a gradient boosted model.  The final model was trained on 3857 observations.  The results of the model's performance on a hold out test set are below:</p>
-										<p>The Model's accuracy is 0.9067, the AUC score is 0.9611.  This means roughly that if we randomly selected an event in which an avalanche occured the model has a 95% chance of rating this event as an avalanche over a non-avalanche event. 
+										<p>The Model's accuracy is 0.9067, the AUC score is 0.9611.  This means roughly that if we randomly selected an event in which an avalanche occured the model has a 96% chance of rating this event as an avalanche over a non-avalanche event. 
 										</p>
 											<table style="width:75%">
 												<tr>
@@ -160,13 +160,13 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 										</p>
 										<img src="images/av_feature_importance_gb.png" alt="Feature Importance">
 										<p>
-											Not suprisingly the top features are elevation and precipitation, followed by snow depth and snow fall.  This is interesting because it provides additional evidence that it is not necessarily about how much "snow" falls, it is about how much the snow was loaded.  I tried some engineered features, such as snow water equivalent as well as features pertaining to how much snow/weight has been added, non of which provided additional information to the model (and were dropped).
+											Not suprisingly the top feature is elevation with precipitation and snow depth contributing about 30% of the explained variance and snow fall, max and min temperature and max wind speed contributing the remaining 50%.  This is interesting because the fact that precipitation and snow depth are such important features provides additional evidence that it is not necessarily about how much "snow" falls, it is about how much the snow was loaded.  I tried some engineered features, such as snow water equivalent as well as features pertaining to how much snow/weight has been added, non of which provided additional information to the model (and were dropped).
 										</p>
 										<p>
-											This model definetly could be improved by feeding it a sliding window of previous weather conditions.  If this were the case, I can imagine that wind speed would play a more prominent role.  I dropped aspect from the feature list, because so many observations of avalanches occured on northerly aspects that it was providing inaccurate predictions.  But I do think the model might have some improvement if the aspects were rolled up into 4 features, North, South, East, and West.  Lastly, when I have the time I'd like to explore day of year as a feature as well.  If you are interested in exploring any of this please do not hesitate to <a href="index.html#contact">contact</a> me! 
+											This model definitely could be improved by feeding it a sliding window of previous weather conditions.  If this were the case, I can imagine that wind speed would play a more prominent role.  I dropped a feature that encoded "aspect" from the feature list, because so many observations of avalanches occured on northerly aspects that the feature was providing inaccurate predictions.  But I do think the model might have some improvement if the aspects were rolled up into 4 features, North, South, East, and West.  Lastly, when I have the time I'd like to explore day of year as a feature as well.  If you are interested in exploring any of this please do not hesitate to <a href="index.html#contact">contact</a> me! 
 										</p>
 										<p>
-											To do: summary of model simulations.  Also deploy model as AWS lambda to improve performance?
+											To do: summary of model simulations.  
 										</p>
 									</div>
 								</div>
@@ -184,7 +184,7 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 					</div>
 					<div class="row ">
 						<form action = "https://avalanche-api.herokuapp.com/avalanche_model" method = "post" onsubmit="submitForm(event, this)">
-							<p>Note:  The model is being served on the free tier by heroku, as such it is pretty slow, please be patient.</p>
+							<p><strong> Note:  This is a toy model.  In other words, do not use this model to make a decision about whether or not to ski in the backcountry!</strong></p>
 								<div class="col-md-4 animate-box" data-animate-effect="fadeInLeft">
 									<p>Elevation (in feet):</p>
 									<p><input type = "text" placeholder="9240" name = "Elevation" /></p>
