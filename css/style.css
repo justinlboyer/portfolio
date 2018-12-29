@@ -745,8 +745,23 @@ body.offcanvas {
   font-size: 16px;
   font-family: "Quicksand", Arial, sans-serif;
   margin-bottom: 10px; }
- 
-.logo {
+
+.row {
+    display: flex;
+  }
+  
+.column {
+    flex: 33.33%;
+    padding: 5px;
+  }
+ /* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
+ @media screen and (max-width: 500px) {
+  .column {
+    width: 100%;
+  }
+} 
+
+  .logo {
   display: flex;
   flex-flow: row wrap;
   justify-content: center;

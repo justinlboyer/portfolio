@@ -216,6 +216,78 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 					</div>
 				</div>
 			</section>
+			<section class="colorlib-about" >
+				<div class="colorlib-narrow-content animate-box" data-animate-effect="fadeInLeft">
+					<span class="heading-meta">Model Simulation</span>
+					<p>
+						In order to identify some of the models failings I tested the model at various levels for two given features; a level with the minimum possible values, at the average values, and at the maximum values.  
+					</p>
+					<div class="row">
+						<div class="col-md-12 row animate-box" data-animate-effect="fadeInRight">
+							<div class="column">
+								<img src="images/pr_v_el_min.png" alt="Precipitation vs. Elevation with minimum 	settings" style="width:105%">
+							</div>
+							<div class="column">
+								<img src="images/pr_v_el_avg.png" alt="Precipitation vs. Elevation with average settings" style="width:105%">
+							</div>
+							<div class="column">
+								<img src="images/pr_v_el_max.png" alt="Precipitation vs. Elevation with maximum settings" style="width:105%">
+							</div>
+						</div>
+					</div>
+					<p>
+						The graphs above are a heatmap of the probabilities of an avalanche occuring at precipitation levels ranging from 0 to 50mm and elevations ranging from 6000 to 12000 feet.  The three different graphs have different settings for the other features.  Notice how at the minimum settings (far left graph), the probability of an avalanche occuring is higher across more values for precipitation and elevation, similarly at maximum values (far right graph).  This is evidence that the data the model was trained on is not robust enough.  In these situations there are few observations and are likely from professionals.
+					</p>
+					<p>
+						It is interesting to note the in the average conditions there is a band of elevations (~9300-9500 ft) that regardless of precipitation levels are likely to avalanche.  This is the elevation of many popular backcountry routes in the Wasatch.  
+					</p>
+					<p>
+						The simulations indicate that given typical situations the model is performing within reason.  However for outlier events (minimums or maximums) the model should not be trusted.  I have included many of the plots that are indicative of the above argument.
+					</p>
+					<div class="row">
+						<div class="col-md-12 row animate-box" data-animate-effect="fadeInRight">
+							<div class="column">
+								<img src="images/sd_v_el_min.png" alt="Snow Depth vs. Elevation with minimum 	settings" style="width:105%">
+							</div>
+							<div class="column">
+								<img src="images/sd_v_el_avg.png" alt="Snow Depth vs. Elevation with average settings" style="width:105%">
+							</div>
+							<div class="column">
+								<img src="images/sd_v_el_max.png" alt="Precipitation vs. Elevation with maximum settings" style="width:105%">
+							</div>
+						</div>
+					</div>
+					<p>
+						I truncated the above charts to snow depts < 4000mm because there are no changes to the avalanche probabilities for increasing snow depths.
+					</p>
+					<div class="row">
+						<div class="col-md-12 row animate-box" data-animate-effect="fadeInRight">
+							<div class="column">
+								<img src="images/sf_v_el_min.png" alt="Snow fall vs. Elevation with minimum 	settings" style="width:105%">
+							</div>
+							<div class="column">
+								<img src="images/sf_v_el_avg.png" alt="Snow fall vs. Elevation with average settings" style="width:105%">
+							</div>
+							<div class="column">
+								<img src="images/sf_v_el_max.png" alt="Snow fall vs. Elevation with maximum settings" style="width:105%">
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-12 row animate-box" data-animate-effect="fadeInRight">
+							<div class="column">
+								<img src="images/mn_v_mx_min.png" alt="Min Temperature vs. Max Temperature with minimum 	settings" style="width:105%">
+							</div>
+							<div class="column">
+								<img src="images/mn_v_mx_avg.png" alt="Min Temperature vs. Max Temperature with average settings" style="width:105%">
+							</div>
+							<div class="column">
+								<img src="images/mn_v_mx_max.png" alt="Min Temperature vs. Max Temperature with maximum settings" style="width:105%">
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
 		</div>
 		</div>
 		
