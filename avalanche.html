@@ -300,6 +300,7 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 			headers: {'Accept': 'application/json','Content-Type': 'text/plain'},
 			body: JSON.stringify({Elevation: form.Elevation.value, Precipitation: form.Precipitation.value, Snow_Depth: form.Snow_Depth.value, Snowfall: form.Snowfall.value, Max_Temperature: form.Max_Temperature.value, Min_Temperature: form.Min_Temperature.value, Max_Wind_Speed: form.Max_Wind_Speed.value}, {mode: 'cors'})
 				}).then(function(response) {
+				alert('Data sent, please be patient the free tier of heroku can have high latency.')
 				return response.json();
 				}).then(function(data) {
 					document.getElementById("avy").innerHTML = JSON.stringify(data["Outputs"]["Avalanche"]);
