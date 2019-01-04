@@ -17,7 +17,7 @@ body {
   font-size: 15px;
   line-height: 1.8;
   color: rgba(0, 0, 0, 0.7); }
-  @media screen and (max-width: 992px) {
+  @media screen and (max-width: 768px) {
     body {
       font-size: 16px; } }
 
@@ -51,7 +51,7 @@ figure {
     color: #b3b3b3;
     font-style: italic;
     font-family: "Quicksand", Arial, sans-serif; }
-    @media screen and (max-width: 480px) {
+    @media screen and (max-width: 768px) {
       figure figcaption {
         width: 100%; } }
 
@@ -228,7 +228,7 @@ figure {
   transition: 0.5s; }
   @media screen and (max-width: 768px) {
     #colorlib-main {
-      width: 100%;
+      width: 75%;
       padding: 0 1em; } }
 
 #colorlib-hero {
@@ -290,7 +290,7 @@ figure {
         position: relative; }
         @media screen and (max-width: 768px) {
           #colorlib-hero .flexslider .slider-text > .slider-text-inner {
-            text-align: center; } }
+            text-align: left; } }
         #colorlib-hero .flexslider .slider-text > .slider-text-inner h1, #colorlib-hero .flexslider .slider-text > .slider-text-inner h2 {
           margin: 0;
           padding-left:100px;
@@ -770,7 +770,7 @@ body.offcanvas {
   height: 100px !important;
   width: 100px !important;
 }
-@media only screen and (max-width: 1140px){
+@media only screen and (max-width: 768px){
 
   .logo {
       display: flex;
@@ -897,7 +897,7 @@ body.offcanvas {
       color: #2c98f0;
       font-size: 60px;
       height: 100px; }
-      @media screen and (max-width: 1200px) {
+      @media screen and (max-width: 768px) {
         .colorlib-feature .colorlib-icon i {
           font-size: 40px; } }
   .colorlib-feature .colorlib-text {
@@ -918,7 +918,7 @@ body.offcanvas {
   .colorlib-feature.colorlib-feature-sm .colorlib-icon i {
     color: #2c98f0;
     font-size: 40px; }
-    @media screen and (max-width: 1200px) {
+    @media screen and (max-width: 768px) {
       .colorlib-feature.colorlib-feature-sm .colorlib-icon i {
         font-size: 28px; } }
 
