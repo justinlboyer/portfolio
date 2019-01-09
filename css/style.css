@@ -428,10 +428,6 @@ body.offcanvas #colorlib-main, body.offcanvas .colorlib-nav-toggle {
 .colorlib-narrow-content {
   padding: 0 2.5em; }
 
-@media screen and (max-width: 768px) {
-  .colorlib-narrow-content {
-    padding: 0; } }
-
 .no-gutters {
   margin: 0;
   padding: 0; }
