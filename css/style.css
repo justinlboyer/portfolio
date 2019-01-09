@@ -1658,7 +1658,7 @@ body.offcanvas #colorlib-main, body.offcanvas .colorlib-nav-toggle {
 
 .colorlib-nav-toggle {
   position: fixed;
-  left: -5px;
+  right: 5px;
   top: 0px;
   z-index: 9999;
   cursor: pointer;
