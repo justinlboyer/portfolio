@@ -525,7 +525,7 @@ body.offcanvas #colorlib-main, body.offcanvas .colorlib-nav-toggle {
   padding: 0; }
 
 .panel-heading a {
-  padding: 20px 25px;
+  padding: 20px 30px;
   display: block;
   width: 100%;
   font-weight: 500;
@@ -565,6 +565,7 @@ body.offcanvas #colorlib-main, body.offcanvas .colorlib-nav-toggle {
   content: "\e114"; }
 
 .panel-heading a.collapsed {
+  padding-right: 5px;
   background: #f2f3f7;
   border: 1px solid #e6e6e6 !important;
   color: #333333; }
